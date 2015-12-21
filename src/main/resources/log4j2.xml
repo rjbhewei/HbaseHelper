@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="warn">
+    <Properties>
+        <property name="LOG_HOME">./logs</property>
+    </Properties>
+
+    <appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%class{0}:%method:%line] [%t] [-[%msg]-] %n"/>
+        </Console>
+        <File name="traceAppender" fileName="${LOG_HOME}/trace.log">
+            <PatternLayout>
+                <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%class{0}:%method:%line] [%t] [-[[![logTrace]!][![%msg]!]]-] %n</pattern>
+            </PatternLayout>
+        </File>
+        <Async name="asyncTraceAppender">
+            <appender-ref ref="traceAppender"/>
+        </Async>
+    </appenders>
+
+    <loggers>
+        <root level="INFO">
+            <appender-ref ref="console"/>
+        </root>
+        <logger name="traceLogger" level="INFO">
+            <appender-ref ref="traceAppender"/>
+        </logger>
+        <!--异步配置方法,需要结合上面的异步配置-->
+        <asyncLogger name="asyncTraceLogger" level="INFO" additivity="false">
+            <appender-ref ref="asyncTraceAppender"/>
+        </asyncLogger>
+    </loggers>
+
+</configuration>
