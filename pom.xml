@@ -10,28 +10,26 @@
 
     <properties>
         <guava.version>16.0.1</guava.version>
+        <log4j2.version>2.2</log4j2.version>
+        <fastjson.version>1.2.5</fastjson.version>
+        <hbase-client.version>1.1.2</hbase-client.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>log4j-over-slf4j</artifactId>
-            <version>1.7.9</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.2</version>
+            <version>${log4j2.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.2</version>
+            <version>${log4j2.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
-            <version>2.2</version>
+            <version>${log4j2.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -41,12 +39,12 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.5</version>
+            <version>${fastjson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.hbase</groupId>
             <artifactId>hbase-client</artifactId>
-            <version>1.1.2</version>
+            <version>${hbase-client.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
